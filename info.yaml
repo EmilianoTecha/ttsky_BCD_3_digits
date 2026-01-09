@@ -1,26 +1,30 @@
 # Tiny Tapeout project information
 project:
-  title:        ""      # Project title
-  author:       ""      # Your name
+  title:        "BCD_3_Digits"      # Project title
+  author:       "Alcala Techachal Emiliano"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  ""      # One line description of what your project does
+  description:  "Este repositorio contiene el diseño completo de la síntesis y layout RTL de un BCD de 3 dígitos"      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
+  clock_hz:     1000000       # Clock frequency in Hz (or 0 if not applicable)
 
   # How many tiles your design occupies? A single tile is about 167x108 uM.
   tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "tt_um_example"
+  top_module:  "tt_um_emiliano_bcd_display"
 
   # List your project's source files here.
   # Source files must be in ./src and you must list each source file separately, one per line.
   # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
   source_files:
     - "project.v"
+    - "bin8_to_bcd.v"
+    - "sevenseg_decoder.v"
+    - "top_bcd_display.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
-# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
+# This section is for the datasheet/website. Use descriptive names.
+
 pinout:
   # Inputs
   ui[0]: ""
@@ -32,24 +36,24 @@ pinout:
   ui[6]: ""
   ui[7]: ""
 
-  # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
+  # Outputs (7-segment display - UNITS)
+  uo[0]: "SEG_U_A"
+  uo[1]: "SEG_U_B"
+  uo[2]: "SEG_U_C"
+  uo[3]: "SEG_U_D"
+  uo[4]: "SEG_U_E"
+  uo[5]: "SEG_U_F"
+  uo[6]: "SEG_U_G"
   uo[7]: ""
 
-  # Bidirectional pins
-  uio[0]: ""
-  uio[1]: ""
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
+  # Bidirectional pins (used as outputs - TENS)
+  uio[0]: "SEG_T_A"
+  uio[1]: "SEG_T_B"
+  uio[2]: "SEG_T_C"
+  uio[3]: "SEG_T_D"
+  uio[4]: "SEG_T_E"
+  uio[5]: "SEG_T_F"
+  uio[6]: "SEG_T_G"
   uio[7]: ""
 
 # Do not change!
